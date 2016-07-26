@@ -1,0 +1,31 @@
+
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# Opt in known filetypes to always normalize line endings on checkin
+# and always use native endings on checkout
+*.c text
+*.config text
+*.h text
+*.cs text
+*.tt text
+*.txt text
+
+# Declare files that will always have CRLF line endings on checkout.
+# sln, csproj files (and friends) are always CRLF, even on linux
+*.sln text eol=crlf
+*.csproj text eol=crlf
+packages.config text eol=crlf
+
+# These are windows specific files which we may as well ensure are
+# always crlf on checkout
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Declare files that will always have LF line endings on checkout.
+*.sh text eol=lf
+Makefile text eol=lf
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
