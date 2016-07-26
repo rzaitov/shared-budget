@@ -4,13 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 
+using Core;
+using MongoDB.Driver;
+
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace SharedBudget.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/events")]
     public class EventsApiController : Controller
     {
+		const string connectionString = "mongodb://127.0.0.1/shared-budget";
+		readonly SharedBugdetRepository repo;
+
+		public EventsApiController()
+		{
+			var mongoUrl = new MongoUrl(connectionString);
+			var client = new MongoClient(mongoUrl);
+			IMongoDatabase mongoDb = client.GetDatabase(mongoUrl.DatabaseName);
+			repo = new SharedBugdetRepository(mongoDb);
+		}
+
         // GET: api/values
         [HttpGet]
         public IEnumerable<string> Get()
@@ -25,9 +39,9 @@ namespace SharedBudget.Controllers
             return "value";
         }
 
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+		[Route("add")]
+        public void Post(Eve)
         {
         }
 

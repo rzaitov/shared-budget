@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45": {
+      "wrappedProject": "../../Core/Core.csproj",
+      "bin": {
+        "assembly": "../../Core/obj/{configuration}/Core.dll",
+        "pdb": "../../Core/obj/{configuration}/Core.pdb"
+      },
+      "dependencies": {
+        "MongoDB.Bson": "2.2.4",
+        "MongoDB.Driver": "2.2.4",
+        "MongoDB.Driver.Core": "2.2.4"
+      }
+    }
+  }
+}

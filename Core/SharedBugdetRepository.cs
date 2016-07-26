@@ -6,7 +6,7 @@ using MongoDB.Driver;
 
 namespace Core
 {
-	class SharedBugdetRepository
+	public class SharedBugdetRepository
 	{
 		const string eventsCollectionName = "events";
 
