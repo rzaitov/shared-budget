@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-using Core;
+using SharedBudget.Model;
 using MongoDB.Driver;
 
 namespace Server.Controllers

@@ -119,5 +119,15 @@
       <DependentUpon>EventsViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logic.Client\Logic.Client.csproj">
+      <Project>{EE232299-F744-4376-932C-9553CB938F55}</Project>
+      <Name>Logic.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{7D8950A3-D0D7-4D56-B3E3-58887B1E7FC5}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

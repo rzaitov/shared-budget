@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-
 using MongoDB.Driver;
+using SharedBudget.Model;
 
-namespace Core
+namespace SharedBudget.Logic.Server
 {
 	public class SharedBugdetRepository
 	{
