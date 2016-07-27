@@ -114,6 +114,10 @@
     <Compile Include="TabBarController.designer.cs">
       <DependentUpon>TabBarController.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventsViewController.cs" />
+    <Compile Include="EventsViewController.designer.cs">
+      <DependentUpon>EventsViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
