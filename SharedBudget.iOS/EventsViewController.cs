@@ -16,6 +16,26 @@ namespace SharedBudget.iOS
 		partial void AddEvent (UIBarButtonItem sender)
 		{
 			Console.WriteLine ("add event");
+			var alert = UIAlertController.Create ("Create new event", string.Empty, UIAlertControllerStyle.Alert);
+			alert.AddTextField (tf => {
+				tf.Placeholder = "event name";
+			});
+
+			var okAction = UIAlertAction.Create ("Ok", UIAlertActionStyle.Default, alertAction => {
+				Console.WriteLine ("event added");
+			});
+			alert.AddAction (okAction);
+
+			var cancelAction = UIAlertAction.Create ("Cancel", UIAlertActionStyle.Cancel, UIAlertAction => {
+				Console.WriteLine ("cancel");
+			});
+			alert.AddAction (cancelAction);
+
+			PresentViewController (alert, true, () => {
+				Console.WriteLine ("PresentViewController completion handler called");
+			});
 		}
+
+
 	}
 }
