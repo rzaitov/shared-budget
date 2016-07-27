@@ -21,8 +21,6 @@ namespace SharedBudget.iOS
 		{
 		}
 
-
-
 		partial void AddEvent (UIBarButtonItem sender)
 		{
 			Console.WriteLine ("add event");
@@ -53,6 +51,26 @@ namespace SharedBudget.iOS
 
 			foreach (var e in Service.GetAllEvents ())
 				Console.WriteLine ($"{e.Id} {e.Name}");
+		}
+
+		public override nint NumberOfSections (UITableView tableView)
+		{
+			return 1;
+		}
+
+		public override nint RowsInSection (UITableView tableView, nint section)
+		{
+			return Service.GetAllEvents ().Count;
+		}
+
+		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
+		{
+			var cell = tableView.DequeueReusableCell ("event-cell");
+			cell = cell ?? new UITableViewCell (UITableViewCellStyle.Default, "event-cell");
+
+			cell.TextLabel.Text = Service.GetAllEvents () [indexPath.Row].Name;
+
+			return cell;
 		}
 	}
 }
