@@ -9,15 +9,38 @@ namespace SharedBudget.Logic.Client
 		// TODO: replace with persistent storage
 		readonly List<Event> events = new List<Event> {
 			new Event {
-				Id = Guid.NewGuid ().ToString(),
-				Name = "Шерегеш 2016"
+				Id = GenerateId (),
+				Name = "Шерегеш 2016",
+				People = new List<People> {
+					new People {
+						Id = GenerateId (),
+						Name = "Rustam",
+						Expenses = new List<Expense> {
+							new Expense {
+								Id = GenerateId (),
+								Amount = 100,
+								Description = "Продукты"
+							},
+							new Expense {
+								Id = GenerateId (),
+								Amount = 200,
+								Description = "Кино"
+							},
+							new Expense {
+								Id = GenerateId (),
+								Amount = 300,
+								Description = "Подъемник"
+							}
+						}
+					}
+				}
 			},
 			new Event {
-				Id = Guid.NewGuid ().ToString(),
+				Id = GenerateId (),
 				Name = "Гудаури 2015"
 			},
 			new Event {
-				Id = Guid.NewGuid().ToString(),
+				Id = GenerateId (),
 				Name = "Маерхофен 2014"
 			}
 		};
@@ -39,6 +62,16 @@ namespace SharedBudget.Logic.Client
 		public List<Event> GetAllEvents ()
 		{
 			return events;
+		}
+
+		public Event GetEvent (string eventId)
+		{
+			return events.Find (e => e.Id == eventId);
+		}
+
+		static string GenerateId ()
+		{
+			return Guid.NewGuid ().ToString ();
 		}
 	}
 }

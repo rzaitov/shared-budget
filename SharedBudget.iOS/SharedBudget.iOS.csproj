@@ -118,6 +118,10 @@
     <Compile Include="EventsViewController.designer.cs">
       <DependentUpon>EventsViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExpensesListController.cs" />
+    <Compile Include="ExpensesListController.designer.cs">
+      <DependentUpon>ExpensesListController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Logic.Client\Logic.Client.csproj">

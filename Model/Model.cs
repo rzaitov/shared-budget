@@ -40,6 +40,9 @@ namespace SharedBudget.Model
 		[JsonProperty("amount")]
 		public decimal Amount { get; set; }
 
+		[JsonProperty("description")]
+		public string Description { get; set; }
+
 		[JsonProperty("targets")]
 		List<string> Targets { get; set; }
 	}

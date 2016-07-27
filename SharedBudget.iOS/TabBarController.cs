@@ -7,9 +7,9 @@ namespace SharedBudget.iOS
 {
 	public partial class TabBarController : UITabBarController
 	{
-		public UIViewController ExpensesController {
+		public ExpensesListController ExpensesController {
 			get {
-				return ViewControllers [0];
+				return (ExpensesListController)ViewControllers [0];
 			}
 		}
 

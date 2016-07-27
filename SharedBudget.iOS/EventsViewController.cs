@@ -74,11 +74,11 @@ namespace SharedBudget.iOS
 		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
 		{
 			if (segue.Identifier == "GoToExpenses") {
-
 				var ip = TableView.IndexPathForCell ((UITableViewCell)sender);
 				var selectedEvent = Service.GetAllEvents () [ip.Row];
 
 				var tabBarController = (TabBarController)segue.DestinationViewController;
+				tabBarController.ExpensesController.EventId = selectedEvent.Id;
 				tabBarController.Title = selectedEvent.Name;
 			}
 		}
