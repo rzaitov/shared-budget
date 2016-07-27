@@ -65,12 +65,22 @@ namespace SharedBudget.iOS
 
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{
-			var cell = tableView.DequeueReusableCell ("event-cell");
-			cell = cell ?? new UITableViewCell (UITableViewCellStyle.Default, "event-cell");
-
+			var cell = tableView.DequeueReusableCell ("event-cell", indexPath);
 			cell.TextLabel.Text = Service.GetAllEvents () [indexPath.Row].Name;
 
 			return cell;
+		}
+
+		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
+		{
+			if (segue.Identifier == "GoToExpenses") {
+
+				var ip = TableView.IndexPathForCell ((UITableViewCell)sender);
+				var selectedEvent = Service.GetAllEvents () [ip.Row];
+
+				var tabBarController = (TabBarController)segue.DestinationViewController;
+				tabBarController.Title = selectedEvent.Name;
+			}
 		}
 	}
 }

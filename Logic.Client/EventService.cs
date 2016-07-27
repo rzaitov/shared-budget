@@ -7,7 +7,20 @@ namespace SharedBudget.Logic.Client
 	public class EventService
 	{
 		// TODO: replace with persistent storage
-		readonly List<Event> events = new List<Event> ();
+		readonly List<Event> events = new List<Event> {
+			new Event {
+				Id = Guid.NewGuid ().ToString(),
+				Name = "Шерегеш 2016"
+			},
+			new Event {
+				Id = Guid.NewGuid ().ToString(),
+				Name = "Гудаури 2015"
+			},
+			new Event {
+				Id = Guid.NewGuid().ToString(),
+				Name = "Маерхофен 2014"
+			}
+		};
 
 		public void AddEvent (Event newEvent)
 		{
